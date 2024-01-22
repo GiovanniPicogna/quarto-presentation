@@ -1,0 +1,18 @@
+---
+title: "Penguins"
+---
+
+[Penguins](https://en.wikipedia.org/wiki/Penguin) are a group of aquatic flightless birds.
+
+Their diet consist of:
+
+- Krill
+- Fish
+- Squid
+- More fish
+
+There are 18 species of penguin, including:
+
+1. Adélie penguin (*Pygoscelis adeliae*)
+2. Chinstrap penguin (*Pygoscelis antarcticus*)
+3. Gentoo penguin (*Pygoscelis papua*)

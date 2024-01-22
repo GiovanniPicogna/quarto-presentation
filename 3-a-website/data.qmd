@@ -1,0 +1,44 @@
+## Load the data
+
+```{python}
+import pandas as pd
+import seaborn as sns
+from palmerpenguins import load_penguins
+sns.set_style('whitegrid')
+```
+
+```{python}
+penguins = load_penguins()
+penguins.head()
+```
+
+## Data exploration
+
+Body mass across the different species and islands.
+
+```{python}
+g = sns.boxplot(x = 'island',
+            y ='body_mass_g',
+            hue = 'species',
+            data = penguins,
+            palette=['#FF8C00','#159090','#A034F0'],
+            linewidth=0.3)
+g.set_xlabel('Island')
+g.set_ylabel('Body Mass')
+```
+
+Body mass as a function of flipper length in @fig-body-mass-flipper-length.
+
+```{python}
+#| label: fig-body-mass-flipper-length
+#| fig-cap: A scatter plot of body mass as a function of flipper length.
+g = sns.lmplot(x="flipper_length_mm",
+               y="body_mass_g",
+               hue="species",
+               height=7,
+               data=penguins,
+               palette=['#FF8C00','#159090','#A034F0'])
+g.set_xlabels('Flipper Length')
+g.set_ylabels('Body Mass')
+g.fig.set_size_inches(5.5, 5.5)
+```

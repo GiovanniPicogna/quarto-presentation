@@ -1,0 +1,11 @@
+---
+title: "Palmer Penguins"
+---
+
+Size measurements, clutch observations, and blood isotope ratios for 344 adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica.
+
+Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica Long Term Ecological Research (LTER) Program.
+
+The goal of the Palmer Penguins dataset is to replace the highly overused Iris dataset for data exploration & visualization.
+
+![](./figures/penguins.png)

@@ -1,0 +1,23 @@
+project:
+  type: website
+
+website:
+  title: "Palmer penguins"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: palmer.qmd
+        text: Palmer penguins
+      - href: data.qmd
+        text: Data
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

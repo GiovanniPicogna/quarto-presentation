@@ -1,0 +1,134 @@
+---
+title: "Reporting on the bill length of penguins"
+title-block-banner: true
+author:
+  - name: Giovanni Picogna
+    id: gp
+    orcid: 0000-0003-3754-1639
+    email: giovanni.picogna@pm.me
+    affiliation: 
+      - name: USM - LMU
+        city: Munich
+        state: Germany
+        url: www.usm.uni-muenchen.de 
+license: "CC BY"
+copyright: 
+  holder: Giovanni Picogna
+  year: 2023
+date: "2021-01-20"
+format: 
+    revealjs:
+        theme: simple
+        logo: ./figures/usmlogo.png
+        footer: "Palmer Penguins"
+        center: true
+        incremental: true
+jupyter: python3
+execute:
+  warning: false
+---
+
+## Introduction
+
+[Penguins](https://en.wikipedia.org/wiki/Penguin) are a group of aquatic flightless birds.
+
+Their diet consist of:
+
+- Krill
+- Fish
+- Squid
+- More fish
+
+---
+
+There are 18 species of penguin, including:
+
+::: {.nonincremental}
+1. Adélie penguin (*Pygoscelis adeliae*)
+2. Chinstrap penguin (*Pygoscelis antarcticus*)
+3. Gentoo penguin (*Pygoscelis papua*)
+:::
+
+## Meet the Palmer penguins
+
+Size measurements, clutch observations, and blood isotope ratios for 344 adult foraging Adélie, Chinstrap, and Gentoo penguins observed on islands in the Palmer Archipelago near Palmer Station, Antarctica.
+
+Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica Long Term Ecological Research (LTER) Program.
+
+---
+
+:::: {.columns}
+
+::: {.column width="40%"}
+The goal of the Palmer Penguins dataset is to replace the highly overused Iris dataset for data exploration & visualization.
+:::
+
+::: {.column width="60%"}
+![](./figures/penguins.png)
+:::
+
+::::
+
+::: {.notes}
+Speaker notes go here.
+:::
+
+## Load the data
+
+```{python}
+import pandas as pd
+import seaborn as sns
+from palmerpenguins import load_penguins
+sns.set_style('whitegrid')
+```
+
+```{python}
+penguins = load_penguins()
+penguins.head()
+```
+
+## Data exploration
+
+Body mass across the different species and islands.
+
+```{.python code-line-numbers="1-6"}
+g = sns.boxplot(x = 'island',
+            y ='body_mass_g',
+            hue = 'species',
+            data = penguins,
+            palette=['#FF8C00','#159090','#A034F0'],
+            linewidth=0.3)
+g.set_xlabel('Island')
+g.set_ylabel('Body Mass')
+```
+
+---
+
+```{python}
+g = sns.boxplot(x = 'island',
+            y ='body_mass_g',
+            hue = 'species',
+            data = penguins,
+            palette=['#FF8C00','#159090','#A034F0'],
+            linewidth=0.3)
+g.set_xlabel('Island')
+g.set_ylabel('Body Mass')
+```
+
+---
+
+Body mass as a function of flipper length in @fig-body-mass-flipper-length.
+
+```{python}
+#| label: fig-body-mass-flipper-length
+#| fig-cap: A scatter plot of body mass as a function of flipper length.
+g = sns.lmplot(x="flipper_length_mm",
+               y="body_mass_g",
+               hue="species",
+               height=7,
+               data=penguins,
+               palette=['#FF8C00','#159090','#A034F0'])
+g.set_xlabels('Flipper Length')
+g.set_ylabels('Body Mass')
+g.fig.set_size_inches(5.5, 5.5)
+```

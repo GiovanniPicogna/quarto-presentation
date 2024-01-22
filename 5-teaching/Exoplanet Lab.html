@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.545">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Giovanni Picogna">
+<meta name="dcterms.date" content="2023-11-07">
+
+<title>Planets 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="Exoplanet Lab_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Exoplanet Lab_files/libs/quarto-html/quarto.js"></script>
+<script src="Exoplanet Lab_files/libs/quarto-html/popper.min.js"></script>
+<script src="Exoplanet Lab_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Exoplanet Lab_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Exoplanet Lab_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Exoplanet Lab_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Exoplanet Lab_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Exoplanet Lab_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Exoplanet Lab_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Planets 1</h1>
+                      </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">Giovanni Picogna <a href="mailto:giovanni.picogna@pm.me" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0003-3754-1639" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    </div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              <a href="www.usm.uni-muenchen.de">
+              USM - LMU
+              </a>
+            </p>
+        </div>
+    </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 7, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="direct-imaging" class="level1">
+<h1>Direct Imaging</h1>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<ul>
+<li><p>Plot the emitted luminosity through the surface of the Sun, Jupiter and Earth as a function of wavelength</p>
+<blockquote class="blockquote">
+<p>Planck’s law describes the spectral density of electromagnetic radiation emitted by a black body.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>A black body absorbs all incident electromagnetic radiation, regardless of frequency or angle of incidence. The radiation emitted by a black body in thermal equilibrium with its environment is called black-body radiation.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>The Planck function describes the the shape of the black body spectrum</p>
+</blockquote>
+<p><span class="math display">\[B_\lambda (T) = \frac{2 h c^2}{\lambda^5}\frac{1}{e^{\frac{h c}{\lambda  k_B T}} - 1}\]</span></p>
+<div id="1a784a87" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> astropy <span class="im">import</span> units <span class="im">as</span> u</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> constants <span class="im">as</span> c</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>np.seterr(over<span class="op">=</span><span class="st">'ignore'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Planck_function(lam, T):</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Calculate the Planck function at a given wavelength and temperature."""</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  B <span class="op">=</span> ((<span class="fl">2.</span><span class="op">*</span>c.h<span class="op">*</span>c.c<span class="op">**</span><span class="dv">2</span><span class="op">/</span>(lam<span class="op">*</span>u.angstrom)<span class="op">**</span><span class="dv">5</span>)<span class="op">/</span>(np.exp((c.h<span class="op">*</span>c.c)<span class="op">/</span>(lam<span class="op">*</span>u.angstrom<span class="op">*</span>c.k_B<span class="op">*</span>T))<span class="op">-</span><span class="fl">1.</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> B.cgs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<blockquote class="blockquote">
+<p>If we integrate the Planck function over the whole surface area of the star, and over all solid angle of space, we will get the monochromatic luminosity:</p>
+</blockquote>
+<p><span class="math display">\[L_\lambda d\lambda = \int_{d\Omega} \int_A B_\lambda d\lambda dA d\Omega = 4\pi^2 R^2 B_\lambda d\lambda\]</span></p>
+<div id="6fe19df9" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Luminosity_mono(lam, T, R):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Calculate the monocromatic luminosity of a black body with given Temperature and Radius."""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  A <span class="op">=</span> np.pi <span class="op">*</span> R<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  Omega <span class="op">=</span> <span class="fl">4.</span> <span class="op">*</span> np.pi</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  lum_mono <span class="op">=</span> Planck_function(lam, T) <span class="op">*</span> Omega <span class="op">*</span> A</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> lum_mono</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<blockquote class="blockquote">
+<p>If we now integrate over all wavelengths we get the total luminosity of the star</p>
+</blockquote>
+<p><span class="math display">\[L = \int_0^\infty L_\lambda d\lambda = 4 \pi R^2 \sigma T^4\]</span></p>
+<div id="30c1479f" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Luminosity(T, R):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Calculate the total luminosity of a black body with given Temperature and Radius."""</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  L <span class="op">=</span> <span class="fl">4.</span> <span class="op">*</span> np.pi <span class="op">*</span> R<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> c.sigma <span class="op">*</span> T<span class="op">**</span><span class="dv">4</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> L</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<blockquote class="blockquote">
+<p>The emitted luminosity through the surface of the Sun, Jupiter and Earth as a function of wavelength than will be:</p>
+</blockquote>
+<div id="67215d6f" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>lambda_array <span class="op">=</span> np.logspace(<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">1000</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.plot(lambda_array, Luminosity_mono(lambda_array, c.T_Sun, c.R_Sun), label<span class="op">=</span><span class="st">'Sun'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>plt.plot(lambda_array, Luminosity_mono(lambda_array, c.T_Jupiter, c.R_Jupiter), label<span class="op">=</span><span class="st">'Jupiter'</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>plt.plot(lambda_array, Luminosity_mono(lambda_array, c.T_Earth, c.R_Earth), label<span class="op">=</span><span class="st">'Earth'</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">1e3</span>, <span class="fl">1e7</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="fl">1e16</span>, <span class="fl">1e35</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.xscale(<span class="st">'log'</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>plt.yscale(<span class="st">'log'</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'wavelength \ $\AA$'</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'spectral luminosity \ Ba m$^2$ s$^{-1}$'</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exoplanet%20Lab_files/figure-html/cell-5-output-1.png" width="613" height="436" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<ul>
+<li><p>Calculate the brightness contrast of Jupiter and Sun in the spectral region where the Rayleigh-Jeans approximation holds for both bodies</p>
+<blockquote class="blockquote">
+<p>The Rayleigh-Jeans law, which is valid for large wavelengths or small frequencies (ultraviolet catastrophe), is given by: <span class="math display">\[B_\lambda = \frac{2 c k_B T}{\lambda^4}\]</span></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>The brigthness contrast between Jupiter and the Sun will then be in this approximation: <span class="math display">\[f = \frac{4\pi R_{Jupiter}^2 B_\lambda(T_{Jupiter})}{4\pi R_{Sun}^2 B_\lambda(T_{Sun})} = \left(\frac{R_{Jupiter}}{R_{Sun}}\right)^2\frac{T_{Jupiter}}{T_{Sun}}\]</span></p>
+</blockquote>
+<div id="f52fd4a5" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> c.R_Jupiter<span class="op">**</span><span class="dv">2</span><span class="op">/</span>c.R_Sun<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> c.T_Jupiter<span class="op">/</span>c.T_Sun</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"L_Jup / L_Sun = </span><span class="sc">{:.3e}</span><span class="st">"</span>.<span class="bu">format</span>(f))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>L_Jup / L_Sun = 2.927e-04</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>The brightness contrast between Jupiter and the Sun is quite favourable, and this happens in the infra-red band where the Rayleigh-Jeans approximation holds true.</p>
+</blockquote></li>
+</ul>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<ul>
+<li><p>Calculate the brightness contrast of Jupiter and the Sun in the visual spectral region</p>
+<blockquote class="blockquote">
+<p>In the visual spectral region the dominant component in the Jupiter spectrum is the reflected light from the Sun</p>
+</blockquote>
+<div id="6102eaf0" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> luminosity_reflected_mono(lam, T_Sun, R_Sun, semi_major, R_plan, albedo):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  lum <span class="op">=</span> Luminosity_mono(lam, T_Sun, R_Sun) <span class="op">/</span> (<span class="fl">4.</span><span class="op">*</span>np.pi<span class="op">*</span>semi_major<span class="op">**</span><span class="dv">2</span>) <span class="op">*</span> np.pi<span class="op">*</span>R_plan<span class="op">**</span><span class="dv">2</span>  <span class="op">*</span> albedo</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> lum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<blockquote class="blockquote">
+<p>as it can be seen from comparing the two components:</p>
+</blockquote>
+<div id="cba6e524" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.plot(lambda_array, Luminosity_mono(lambda_array, c.T_Sun, c.R_Sun), label<span class="op">=</span><span class="st">'Sun'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.plot(lambda_array, Luminosity_mono(lambda_array, c.T_Jupiter, c.R_Jupiter), ls <span class="op">=</span><span class="st">':'</span>, color<span class="op">=</span><span class="st">'black'</span>, label<span class="op">=</span><span class="st">'Jupiter thermal'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.plot(lambda_array, luminosity_reflected_mono(lambda_array, c.T_Sun, c.R_Sun, c.a_Jupiter, c.R_Jupiter, c.albedo_vis_Jupiter), ls<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'black'</span>, label<span class="op">=</span><span class="st">'Jupiter reflected'</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>ax.axvspan(<span class="dv">3800</span>, <span class="dv">7500</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">'green'</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="fl">1e16</span>, <span class="fl">1e35</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.xscale(<span class="st">'log'</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.yscale(<span class="st">'log'</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'wavelength \ $\AA$'</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'spectral luminosity \ Ba m$^2$ s$^{-1}$'</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exoplanet%20Lab_files/figure-html/cell-8-output-1.png" width="601" height="436" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>the brightness contrast between Jupiter and the Sun in the visual spectral region is then</p>
+</blockquote>
+<div id="c64db77a" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visual spectral region</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>lam <span class="op">=</span> np.linspace(<span class="dv">380</span>, <span class="dv">750</span>, <span class="dv">1000</span>) <span class="op">*</span> u.nanometer</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>contrast <span class="op">=</span> luminosity_reflected_mono(lambda_array, c.T_Sun, c.R_Sun, c.a_Jupiter, c.R_Jupiter, c.albedo_vis_Jupiter) <span class="op">/</span> Luminosity_mono(lambda_array, c.T_Sun, c.R_Sun)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#contrast = ((np.pi*c.R_Jupiter**2)/(4.*np.pi*c.a_Jupiter**2)).to(u.dimensionless_unscaled) * c.albedo_vis_Jupiter</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"contrast = </span><span class="sc">{:.3e}</span><span class="st">"</span>.<span class="bu">format</span>(np.mean(contrast)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>contrast = 7.179e-10</code></pre>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<ul>
+<li><p>What apparent visual magnitude would Jupiter have as seen from our neighbouring star Proxima Centauri? What maximum angular distance could be observed?</p>
+<blockquote class="blockquote">
+<p>the Sun, with a visual absolute magnitude of <span class="math inline">\(M_{Sun} = 4.83\)</span> would be seen from Proxima Centauri (<span class="math inline">\(d=1.31 \ pc\)</span>) with an apparent visual magnitude of <span class="math display">\[m_{Sun} = M_{Sun}+5\log_{10}\left(\frac{1.31 \ pc}{10 \ pc}\right)\]</span></p>
+</blockquote>
+<div id="80f74c7e" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>d_Proxima <span class="op">=</span> <span class="fl">1.31</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>m_Sun <span class="op">=</span> c.M_vis_Sun <span class="op">+</span> <span class="fl">5.</span><span class="op">*</span>np.log10(d_Proxima<span class="op">/</span><span class="fl">10.</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"m_Sun = </span><span class="sc">{:.3f}</span><span class="st">"</span>.<span class="bu">format</span>(m_Sun))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>m_Sun = 0.416</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>given the contrast in flux between the Sun and Jupiter we can calculate a difference in magnitude: <span class="math display">\[\Delta m = -2.5 \log_{10}\left(\frac{L_{Jup}}{L_{Sun}}\right)\]</span> <span class="math display">\[m_{Jup} = m_{Sun} - 2.5\log_{10}\left(\frac{L_{Jup}}{L_{Sun}}\right)\]</span></p>
+</blockquote>
+<div id="7e89c673" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>m_Jup <span class="op">=</span> m_Sun <span class="op">-</span> <span class="fl">2.5</span><span class="op">*</span>np.log10(np.mean(contrast))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"m_Jup = </span><span class="sc">{:.3f}</span><span class="st">"</span>.<span class="bu">format</span>(m_Jup))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>m_Jup = 23.276</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>At 1.31 pc the angular separation of Jupiter from the Sun would be <span class="math display">\[\theta = \frac{5.2\ \mathrm{au}}{1.31\ \mathrm{pc}}\]</span></p>
+</blockquote>
+<div id="0c8cda9c" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> (<span class="fl">5.2</span><span class="op">/</span><span class="fl">1.31</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"theta_Jup = </span><span class="sc">{:.3f}</span><span class="st"> arcsec"</span>.<span class="bu">format</span>(theta))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>theta_Jup = 3.969 arcsec</code></pre>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<ul>
+<li><p>Plot the spectral energy distribution of the reflected Sun light on Jupiter into the plot of exercise 1</p>
+<div id="0799b247" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>plt.plot(lambda_array, Luminosity_mono(lambda_array, c.T_Sun, c.R_Sun), label<span class="op">=</span><span class="st">'Sun'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.plot(lambda_array, Luminosity_mono(lambda_array, c.T_Jupiter, c.R_Jupiter), label<span class="op">=</span><span class="st">'Jupiter thermal'</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.plot(lambda_array, luminosity_reflected_mono(lambda_array, c.T_Sun, c.R_Sun, c.a_Jupiter, c.R_Jupiter, c.albedo_vis_Jupiter), ls<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'orange'</span>, label<span class="op">=</span><span class="st">'Jupiter reflected'</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>plt.plot(lambda_array, Luminosity_mono(lambda_array, c.T_Earth, c.R_Earth), label<span class="op">=</span><span class="st">'Earth'</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">1e3</span>, <span class="fl">1e7</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="fl">1e16</span>, <span class="fl">1e35</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.xscale(<span class="st">'log'</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>plt.yscale(<span class="st">'log'</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'wavelength \ $\AA$'</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'spectral luminosity \ Ba m$^2$ s$^{-1}$'</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exoplanet%20Lab_files/figure-html/cell-13-output-1.png" width="613" height="436" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p>Calculate the ratio of reflected light and thermal emission of Jupiter at 500 nm</p>
+<div id="c45c1053" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>lambda_val <span class="op">=</span> ((<span class="fl">500.</span> <span class="op">*</span> u.nanometer).to(u.AA)).value</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>Ljup    <span class="op">=</span> Luminosity_mono(lambda_val, c.T_Jupiter, c.R_Jupiter) </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>Refljup <span class="op">=</span> luminosity_reflected_mono(lambda_val, c.T_Sun, c.R_Sun, c.a_Jupiter, c.R_Jupiter, c.albedo_vis_Jupiter)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Refljup/Ljup at 500 nm = </span><span class="sc">{:.3e}</span><span class="st">"</span>.<span class="bu">format</span>(Refljup<span class="op">/</span>Ljup))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Refljup/Ljup at 500 nm = 5.982e+68</code></pre>
+</div>
+</div></li>
+<li><p>From which wavelength on is the thermal emission dominant?</p>
+<div id="8bfe0ab1" class="cell" data-execution_count="14">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>therm_jupiter <span class="op">=</span> Luminosity_mono(lambda_array, c.T_Jupiter, c.R_Jupiter) </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>refl_jupiter  <span class="op">=</span> luminosity_reflected_mono(lambda_array, c.T_Sun, c.R_Sun, c.a_Jupiter, c.R_Jupiter, c.albedo_vis_Jupiter)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>min_lambda <span class="op">=</span> lambda_array[np.where(therm_jupiter<span class="op">&gt;</span>refl_jupiter)][<span class="dv">0</span>]</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Jupiter thermal emission is dominant from </span><span class="sc">{:.3f}</span><span class="st">"</span>.<span class="bu">format</span>((min_lambda<span class="op">*</span>u.AA).to(u.nm)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Jupiter thermal emission is dominant from 5672.229 nm</code></pre>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<ul>
+<li><p>In which spectral range is the Earth brighter than Jupiter?</p>
+<div id="efed43ce" class="cell" data-execution_count="15">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">5</span>),facecolor<span class="op">=</span><span class="st">'w'</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>refl_earth <span class="op">=</span> Luminosity_mono(lambda_array, c.T_Sun, c.R_Sun) <span class="op">/</span> (<span class="fl">4.</span><span class="op">*</span>np.pi<span class="op">*</span>c.au<span class="op">**</span><span class="dv">2</span>) <span class="op">*</span> np.pi<span class="op">*</span>c.R_Earth<span class="op">**</span><span class="dv">2</span>  <span class="op">*</span> c.albedo_vis_Earth</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>earth <span class="op">=</span> refl_earth <span class="op">+</span> Luminosity_mono(lambda_array, c.T_Earth, c.R_Earth)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>refl_jupiter <span class="op">=</span> Luminosity_mono(lambda_array, c.T_Sun, c.R_Sun) <span class="op">/</span> (<span class="fl">4.</span><span class="op">*</span>np.pi<span class="op">*</span>c.a_Jupiter<span class="op">**</span><span class="dv">2</span>) <span class="op">*</span> np.pi<span class="op">*</span>c.R_Jupiter<span class="op">**</span><span class="dv">2</span>  <span class="op">*</span> c.albedo_vis_Jupiter</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>jupiter <span class="op">=</span> refl_jupiter <span class="op">+</span> Luminosity_mono(lambda_array, c.T_Jupiter, c.R_Jupiter)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>plt.plot(lambda_array, earth, label<span class="op">=</span><span class="st">'Earth'</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>plt.plot(lambda_array, jupiter, label<span class="op">=</span><span class="st">'Jupiter'</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>min_lambda <span class="op">=</span> lambda_array[np.where(earth<span class="op">&gt;</span>jupiter)][<span class="dv">0</span>]</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>max_lambda <span class="op">=</span> lambda_array[np.where(earth<span class="op">&gt;</span>jupiter)][<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">1e3</span>, <span class="fl">1e7</span>)</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="fl">1e16</span>, <span class="fl">1e25</span>)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>plt.xscale(<span class="st">'log'</span>)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>plt.yscale(<span class="st">'log'</span>)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'wavelength \ $\AA$'</span>)</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'spectral luminosity \ Ba m$^2$ s$^{-1}$'</span>)</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The Earth is brighter than Jupiter from </span><span class="sc">{:.3f}</span><span class="st"> to </span><span class="sc">{:.3f}</span><span class="st">"</span>.<span class="bu">format</span>((min_lambda<span class="op">*</span>u.AA).to(u.nm), (max_lambda<span class="op">*</span>u.AA).to(u.nm)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>The Earth is brighter than Jupiter from 4262.159 nm to 8277.857 nm</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exoplanet%20Lab_files/figure-html/cell-16-output-2.png" width="613" height="436" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+</section>
+<section id="radial-velocity" class="level1">
+<h1>Radial velocity</h1>
+<section id="exercise-7" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<ul>
+<li><p>What is the maximum radial velocity amplitude of the Sun caused by Mercury, Earth and Jupiter that an observer outside the Solar System can measure?</p>
+<blockquote class="blockquote">
+<p>The maximum radial velocity amplitude of the Sun caused by Mercury, Earth and Jupiter would be seen by an observer seeing the Solar system face on (<span class="math inline">\(i=0\)</span>) and would be: <span class="math display">\[v_{Sun, Planet} = \left(\frac{2\pi G}{P}\right)^{1/3} \cdot \frac{M_{Planet}}{M_{Star}^{2/3}}\]</span></p>
+</blockquote>
+<div id="1e5ad512" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> v_radial(a, e, i, m_star, m_planet):</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the radial velocity of a star due to a planet</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  P <span class="op">=</span> np.sqrt(<span class="fl">4.</span><span class="op">*</span>np.pi<span class="op">**</span><span class="dv">2</span><span class="op">*</span>a<span class="op">**</span><span class="dv">3</span><span class="op">/</span>(c.G<span class="op">*</span>(m_star<span class="op">+</span>m_planet)))</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  v <span class="op">=</span> (<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>c.G<span class="op">/</span>P)<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>) <span class="op">*</span> m_planet<span class="op">/</span>m_star<span class="op">**</span>(<span class="dv">2</span><span class="op">/</span><span class="dv">3</span>) <span class="op">*</span> np.sin(i) <span class="op">*</span> (<span class="dv">1</span><span class="op">-</span>e<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> v.to(u.m<span class="op">/</span>u.s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="32635128" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Maximum radial velocity from Mercury: </span><span class="sc">{:.3f}</span><span class="st">"</span>.<span class="bu">format</span>(v_radial(c.a_Mercury, <span class="fl">0.0</span>, <span class="fl">90.</span><span class="op">*</span>u.deg, c.M_Sun, c.M_Mercury).to(u.cm<span class="op">/</span>u.s)))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Maximum radial velocity from Earth: </span><span class="sc">{:.3f}</span><span class="st">"</span>.<span class="bu">format</span>(v_radial(c.au, <span class="fl">0.0</span>, <span class="fl">90.</span><span class="op">*</span>u.deg, c.M_Sun, c.M_Earth).to(u.cm<span class="op">/</span>u.s)))</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Maximum radial velocity from Jupiter: </span><span class="sc">{:.3f}</span><span class="st">"</span>.<span class="bu">format</span>(v_radial(c.a_Jupiter, <span class="fl">0.0</span>, <span class="fl">90.</span><span class="op">*</span>u.deg, c.M_Sun, c.M_Jupiter)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Maximum radial velocity from Mercury: 0.802 cm / s
+Maximum radial velocity from Earth: 8.943 cm / s
+Maximum radial velocity from Jupiter: 12.473 m / s</code></pre>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="exercise-8" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-8">Exercise 8</h2>
+<ul>
+<li><p>Plot the maximum radial velocity amplitude of a G2V star with a planet of mass 0.5, 1 and 2 M_Jupiter as a function of semi-major axis (range 0.1-5 au)</p>
+<div id="02c4d032" class="cell" data-execution_count="18">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>semimajor <span class="op">=</span> np.linspace(<span class="fl">0.1</span>, <span class="dv">5</span>, <span class="dv">1000</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>plt.plot(semimajor, v_radial(semimajor<span class="op">*</span>u.au, <span class="fl">0.0</span>, <span class="fl">90.</span><span class="op">*</span>u.deg, <span class="fl">1.</span><span class="op">*</span>u.M_sun, <span class="fl">0.5</span><span class="op">*</span>u.M_jup), label<span class="op">=</span><span class="st">'0.5 Jupiter'</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>plt.plot(semimajor, v_radial(semimajor<span class="op">*</span>u.au, <span class="fl">0.0</span>, <span class="fl">90.</span><span class="op">*</span>u.deg, <span class="fl">1.</span><span class="op">*</span>u.M_sun, <span class="fl">1.</span><span class="op">*</span>u.M_jup), label<span class="op">=</span><span class="st">'1 Jupiter'</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>plt.plot(semimajor, v_radial(semimajor<span class="op">*</span>u.au, <span class="fl">0.0</span>, <span class="fl">90.</span><span class="op">*</span>u.deg, <span class="fl">1.</span><span class="op">*</span>u.M_sun, <span class="fl">2.</span><span class="op">*</span>u.M_jup), label<span class="op">=</span><span class="st">'2 Jupiter'</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Radial velocity (m/s)'</span>)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Semimajor axis (AU)'</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">0.1</span>, <span class="fl">5.</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exoplanet%20Lab_files/figure-html/cell-19-output-1.png" width="597" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="exercise-9" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-9">Exercise 9</h2>
+<ul>
+<li><p>Consider randomly distributed inclination angles <span class="math inline">\(i\)</span>. The observed inclination angles of extrasolar planets have a <span class="math inline">\(\sin i\)</span> probability distribution function over the interval <span class="math inline">\([0, \pi/2]\)</span></p>
+<div id="8441d9ec" class="cell" data-execution_count="19">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> integrate</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>inc <span class="op">=</span> <span class="kw">lambda</span> i : i<span class="op">*</span>np.sin(i)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>mean_inc <span class="op">=</span> integrate.quad(inc, <span class="dv">0</span>, np.pi<span class="op">/</span><span class="fl">2.</span>, full_output<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>]</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'&lt;inc&gt; = </span><span class="sc">{:.3f}</span><span class="st"> deg'</span>.<span class="bu">format</span>(mean_inc<span class="op">/</span>np.pi<span class="op">*</span><span class="fl">180.</span>))</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'M_pl/M_min = </span><span class="sc">{:.3f}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="fl">1.</span><span class="op">/</span>np.sin(mean_inc)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;inc&gt; = 57.296 deg
+M_pl/M_min = 1.188</code></pre>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="exercise-10" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-10">Exercise 10</h2>
+<ul>
+<li><p>What is the probability that a planet candidate with minimum mass 2, 4, 6, 8 and 10 M_Jupiter is actually not a planet but a Brown Dwarf? What is the chance that it is a main sequence star?</p>
+<blockquote class="blockquote">
+<p>The mass limit for a Brown Dwarf is <span class="math inline">\(13 M_{Jup}\)</span> while for a main sequence star it is <span class="math inline">\(80 M_{Jup}\)</span></p>
+</blockquote>
+<div id="4d89351f" class="cell" data-execution_count="20">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>min_mass <span class="op">=</span> np.array([<span class="fl">2.</span>, <span class="fl">4.</span>, <span class="fl">6.</span>, <span class="fl">8.</span>, <span class="fl">10.</span>])</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>mass_thresh_BD <span class="op">=</span> <span class="fl">13.</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>mass_thresh_MS <span class="op">=</span> <span class="fl">80.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<blockquote class="blockquote">
+<p>Given that <span class="math display">\[M_{threshold} \leq M_{pl} = \frac{M_{pl,measured}}{\sin i}\]</span> <span class="math display">\[\sin i \leq \frac{M_{pl,measured}}{M_{threshold}}\]</span> we can derive the minimum inclination for a detection of a brown dwarf and a main sequence star</p>
+</blockquote>
+<div id="6f9c686f" class="cell" data-execution_count="21">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>i_BD <span class="op">=</span> np.arcsin(min_mass<span class="op">/</span>mass_thresh_BD)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>i_MS <span class="op">=</span> np.arcsin(min_mass<span class="op">/</span>mass_thresh_MS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<blockquote class="blockquote">
+<p>and derive the probability distribution function for a <span class="math inline">\(\sin i\)</span> distribution of angles</p>
+</blockquote>
+<div id="a07d9433" class="cell" data-execution_count="22">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> quad</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>prob_i <span class="op">=</span> <span class="kw">lambda</span> x: np.sin(x)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(min_mass)) :</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">'---------------------------------------'</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Mmin = </span><span class="sc">{:.1f}</span><span class="st"> M_J"</span>.<span class="bu">format</span>(min_mass[i]))</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"i_BD = </span><span class="sc">{:.2f}</span><span class="st"> deg"</span>.<span class="bu">format</span>(i_BD[i]<span class="op">/</span>np.pi<span class="op">*</span><span class="fl">180.</span>))</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"i_MS = </span><span class="sc">{:.2f}</span><span class="st"> deg"</span>.<span class="bu">format</span>(i_MS[i]<span class="op">/</span>np.pi<span class="op">*</span><span class="fl">180.</span>))</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  P_MS   <span class="op">=</span> quad(prob_i, <span class="fl">0.</span>, i_MS[i])[<span class="dv">0</span>]   </span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  P_BD   <span class="op">=</span> quad(prob_i, i_MS[i], i_BD[i])[<span class="dv">0</span>]   </span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  P_BDMS <span class="op">=</span> quad(prob_i, <span class="fl">0.</span>, i_BD[i])[<span class="dv">0</span>]   </span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>  P_PL   <span class="op">=</span> quad(prob_i, i_BD[i], np.pi<span class="op">/</span><span class="fl">2.</span>)[<span class="dv">0</span>] </span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"P_MS = </span><span class="sc">{:.2f}</span><span class="st"> %"</span>.<span class="bu">format</span>(P_MS<span class="op">*</span><span class="fl">100.</span>,<span class="st">'%'</span>))</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"P_BD = </span><span class="sc">{:.2f}</span><span class="st"> %"</span>.<span class="bu">format</span>(P_BD<span class="op">*</span><span class="fl">100.</span>,<span class="st">'%'</span>))</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"P_PL = </span><span class="sc">{:.2f}</span><span class="st"> %"</span>.<span class="bu">format</span>(P_PL<span class="op">*</span><span class="fl">100.</span>,<span class="st">'%'</span>))</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"P_BD+P_MS = </span><span class="sc">{:.2f}</span><span class="st"> %"</span>.<span class="bu">format</span>(P_BDMS<span class="op">*</span><span class="fl">100.</span>,<span class="st">'%'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>---------------------------------------
+Mmin = 2.0 M_J
+i_BD = 8.85 deg
+i_MS = 1.43 deg
+P_MS = 0.03 %
+P_BD = 1.16 %
+P_PL = 98.81 %
+P_BD+P_MS = 1.19 %
+---------------------------------------
+Mmin = 4.0 M_J
+i_BD = 17.92 deg
+i_MS = 2.87 deg
+P_MS = 0.13 %
+P_BD = 4.73 %
+P_PL = 95.15 %
+P_BD+P_MS = 4.85 %
+---------------------------------------
+Mmin = 6.0 M_J
+i_BD = 27.49 deg
+i_MS = 4.30 deg
+P_MS = 0.28 %
+P_BD = 11.01 %
+P_PL = 88.71 %
+P_BD+P_MS = 11.29 %
+---------------------------------------
+Mmin = 8.0 M_J
+i_BD = 37.98 deg
+i_MS = 5.74 deg
+P_MS = 0.50 %
+P_BD = 20.68 %
+P_PL = 78.82 %
+P_BD+P_MS = 21.18 %
+---------------------------------------
+Mmin = 10.0 M_J
+i_BD = 50.28 deg
+i_MS = 7.18 deg
+P_MS = 0.78 %
+P_BD = 35.32 %
+P_PL = 63.90 %
+P_BD+P_MS = 36.10 %</code></pre>
+</div>
+</div></li>
+</ul>
+</section>
+</section>
+<section id="transit-method" class="level1">
+<h1>Transit method</h1>
+<section id="exercise-11" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-11">Exercise 11</h2>
+<ul>
+<li><p>List the transit depth, maximum transit duration, transit probability and minimum inclination for Venus, Earth and Jupiter</p>
+<div id="effca752" class="cell" data-execution_count="23">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The transit depth of Venus is: "</span>, (c.R_Venus<span class="op">/</span>c.R_Sun)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The transit depth of Earth is: "</span>, (c.R_Earth<span class="op">/</span>c.R_Sun)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The transit depth of Jupiter is: "</span>, (c.R_Jupiter<span class="op">/</span>c.R_Sun)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The maximum transit duration of Venus is: "</span>, (np.sqrt((<span class="fl">4.</span><span class="op">*</span>c.a_Venus)<span class="op">/</span>(c.G<span class="op">*</span>c.M_Sun))<span class="op">*</span>(c.R_Sun<span class="op">+</span>c.R_Venus)).to(u.day))</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The maximum transit duration of Earth is: "</span>, (np.sqrt((<span class="fl">4.</span><span class="op">*</span>c.au)<span class="op">/</span>(c.G<span class="op">*</span>c.M_Sun))<span class="op">*</span>(c.R_Sun<span class="op">+</span>c.R_Earth)).to(u.day))</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The maximum transit duration of Jupiter is: "</span>, (np.sqrt((<span class="fl">4.</span><span class="op">*</span>c.a_Jupiter)<span class="op">/</span>(c.G<span class="op">*</span>c.M_Sun))<span class="op">*</span>(c.R_Sun<span class="op">+</span>c.R_Jupiter)).to(u.day))</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The transit probability of Venus is: "</span>, (c.R_Sun<span class="op">/</span>c.a_Venus).to(u.dimensionless_unscaled)<span class="op">*</span><span class="fl">100.</span>, <span class="st">"%"</span>)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The transit probability of Earth is: "</span>, (c.R_Sun<span class="op">/</span>c.au).to(u.dimensionless_unscaled)<span class="op">*</span><span class="fl">100.</span>, <span class="st">"%"</span>)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The transit probability of Jupiter is: "</span>, (c.R_Sun<span class="op">/</span>c.a_Jupiter).to(u.dimensionless_unscaled)<span class="op">*</span><span class="fl">100.</span>, <span class="st">"%"</span>)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The minimum inclination for Venus is: "</span>, np.arccos(c.R_Sun<span class="op">/</span>c.a_Venus).to(u.deg))</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The minimum inclination for Earth is: "</span>, np.arccos(c.R_Sun<span class="op">/</span>c.au).to(u.deg))</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The minimum inclination for Jupiter is: "</span>, np.arccos(c.R_Sun<span class="op">/</span>c.a_Jupiter).to(u.deg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>The transit depth of Venus is:  7.562523593823608e-05
+The transit depth of Earth is:  8.405017877225196e-05
+The transit depth of Jupiter is:  0.010560169441850946
+The maximum transit duration of Venus is:  0.4627673754685786 d
+The maximum transit duration of Earth is:  0.545631570500571 d
+The maximum transit duration of Jupiter is:  1.3596270675056974 d
+The transit probability of Venus is:  0.6458981041846176 %
+The transit probability of Earth is:  0.46504663501292465 %
+The transit probability of Jupiter is:  0.0894320451947932 %
+The minimum inclination for Venus is:  89.62992507315892 deg
+The minimum inclination for Earth is:  89.73354694494128 deg
+The minimum inclination for Jupiter is:  89.94875920574067 deg</code></pre>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="exercise-12" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-12">Exercise 12</h2>
+<ul>
+<li><p>Plot the transiting probability for a G2V-star (Sun-like) as a function of the semi-major axis, and compare with E8.</p>
+<div id="e8f68777" class="cell" data-execution_count="24">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transit_probability(r_star, a_planet):</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (r_star<span class="op">/</span>a_planet).to(u.dimensionless_unscaled)<span class="op">*</span><span class="fl">100.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="e235699c" class="cell" data-execution_count="25">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>semimajor <span class="op">=</span> np.linspace(<span class="fl">0.1</span>, <span class="dv">5</span>, <span class="dv">1000</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>plt.plot(semimajor, transit_probability(c.R_Sun, semimajor<span class="op">*</span>u.au), label<span class="op">=</span><span class="st">'1 R_sun'</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'transit probability / %'</span>)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Semimajor axis (AU)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>Text(0.5, 0, 'Semimajor axis (AU)')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exoplanet%20Lab_files/figure-html/cell-26-output-2.png" width="576" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+</section>
+<section id="overview-of-all-detected-planets" class="level1">
+<h1>Overview of all detected planets</h1>
+<section id="exercise-13" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-13">Exercise 13</h2>
+<ul>
+<li><p>Create a table with the up-to-date number of discoveries for the different detection methods</p>
+<div id="f646a624" class="cell" data-execution_count="26">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>observations <span class="op">=</span> pd.read_table(<span class="st">"data/table.dat"</span>, names<span class="op">=</span>[<span class="st">"method"</span>, <span class="st">"detected as October 2023"</span>, <span class="st">"M_planet &lt; 13 M_Jup"</span>])</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>observations</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">method</th>
+<th data-quarto-table-cell-role="th">detected as October 2023</th>
+<th data-quarto-table-cell-role="th">M_planet &lt; 13 M_Jup</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>radial_velocity</td>
+<td>1078</td>
+<td>957</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>timing</td>
+<td>49</td>
+<td>32</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>microlensing</td>
+<td>263</td>
+<td>226</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>imaging</td>
+<td>233</td>
+<td>78</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>transit</td>
+<td>3815</td>
+<td>1273</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>astrometry</td>
+<td>20</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>TTV</td>
+<td>28</td>
+<td>23</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Other</td>
+<td>33</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Total</td>
+<td>5519</td>
+<td>2614</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="exercise-14" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-14">Exercise 14</h2>
+<ul>
+<li><p>Make a histogram of masses and periods for all planets found with the radial velocity and the transit method</p>
+<div id="7456440e" class="cell" data-execution_count="27">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>data_raw <span class="op">=</span> pd.read_csv(<span class="st">"data/transit_radvel.csv"</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'period hystogram'</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>sns.histplot(data_raw, x<span class="op">=</span><span class="st">"orbital_period"</span>, bins<span class="op">=</span><span class="dv">20</span>, hue<span class="op">=</span><span class="st">"detection_type"</span>, log_scale<span class="op">=</span><span class="va">True</span>, kde<span class="op">=</span><span class="va">True</span>, stat<span class="op">=</span><span class="st">"density"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exoplanet%20Lab_files/figure-html/cell-28-output-1.png" width="598" height="451" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="592d155b" class="cell" data-execution_count="28">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'mass hystogram'</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(data_raw, x<span class="op">=</span><span class="st">"mass"</span>, binwidth<span class="op">=</span><span class="fl">0.5</span>, hue<span class="op">=</span><span class="st">"detection_type"</span>, log_scale<span class="op">=</span><span class="va">True</span>, kde<span class="op">=</span><span class="va">True</span>, stat<span class="op">=</span><span class="st">"density"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exoplanet%20Lab_files/figure-html/cell-29-output-1.png" width="597" height="451" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+<section id="exercise-15" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-15">Exercise 15</h2>
+<ul>
+<li><p>Make a correlation diagram of semi-major axis vs.&nbsp;eccentricity for all planets found with the radial velocity and transit method</p>
+<div id="ab3e4e14" class="cell" data-execution_count="29">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"a"</span>: data_raw[<span class="st">"semi_major_axis"</span>],</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"e"</span>: data_raw[<span class="st">"eccentricity"</span>],</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"i"</span>: data_raw[<span class="st">"inclination"</span>],</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: data_raw[<span class="st">"name"</span>],</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"method"</span>: data_raw[<span class="st">"detection_type"</span>]</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.drop(data[data[<span class="st">"e"</span>] <span class="op">==</span> <span class="dv">0</span>].index)</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>solar_data <span class="op">=</span> pd.read_table(<span class="st">"data/solarsystem.dat"</span>, names<span class="op">=</span>[<span class="st">"a"</span>, <span class="st">"e"</span>, <span class="st">"name"</span>])</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>solar_system <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"a"</span>: solar_data[<span class="st">"a"</span>],</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"e"</span>: solar_data[<span class="st">"e"</span>],</span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: solar_data[<span class="st">"name"</span>],</span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"method"</span>: <span class="st">"Solar System"</span></span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.concat([data, solar_system], axis<span class="op">=</span><span class="dv">0</span>).reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="ef42accf" class="cell" data-execution_count="30">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.jointplot(</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  data<span class="op">=</span>data,</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  x<span class="op">=</span><span class="st">"a"</span>, y<span class="op">=</span><span class="st">"e"</span>,</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  hue<span class="op">=</span><span class="st">"method"</span>,</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  marginal_kws<span class="op">=</span><span class="bu">dict</span>(fill<span class="op">=</span><span class="va">True</span>, log_scale<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="fl">1e-2</span>,<span class="fl">1e2</span>)</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="fl">1e-3</span>,<span class="dv">1</span>)</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'semi-major axis / au'</span>)</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'eccentricity'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>Text(35.95833333333333, 0.5, 'eccentricity')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Exoplanet%20Lab_files/figure-html/cell-31-output-2.png" width="576" height="568" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div></li>
+</ul>
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

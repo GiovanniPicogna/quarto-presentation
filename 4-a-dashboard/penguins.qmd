@@ -1,0 +1,62 @@
+--- 
+title: "Palmer Penguins"
+author:
+  - name: Giovanni Picogna
+    id: gp
+    orcid: 0000-0003-3754-1639
+    email: giovanni.picogna@pm.me
+    affiliation: 
+      - name: USM - LMU
+        city: Munich
+        state: Germany
+        url: www.usm.uni-muenchen.de 
+format: 
+  dashboard:
+    logo: ./figures/penguins.png
+    theme: cosmo
+---
+
+## Row {height=30%}
+
+```{python}
+#| title: "Data set"
+import pandas as pd
+import seaborn as sns
+from palmerpenguins import load_penguins
+sns.set_style('whitegrid')
+penguins = load_penguins()
+penguins
+```
+
+::: {.card title="Source"}
+Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica Long Term Ecological Research (LTER) Program.
+
+The goal of the Palmer Penguins dataset is to replace the highly overused Iris dataset for data exploration & visualization.
+:::
+
+## Row {height=70%}
+
+```{python}
+#| title: "Box plot of body masses"
+#| padding: 0 px
+g = sns.boxplot(x = 'island',
+            y ='body_mass_g',
+            hue = 'species',
+            data = penguins,
+            palette=['#FF8C00','#159090','#A034F0'],
+            linewidth=0.3)
+g.set(xlabel = "Island", ylabel = "Body Mass")
+```
+
+```{python}
+#| padding: 0px
+#| title: "Body mass as a function of flipper length."
+g = sns.lmplot(x="flipper_length_mm",
+               y="body_mass_g",
+               hue="species",
+               height=7,
+               data=penguins,
+               palette=['#FF8C00','#159090','#A034F0'])
+g.set_xlabels('Flipper Length')
+g.set_ylabels('Body Mass')
+```

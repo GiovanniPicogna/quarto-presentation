@@ -1,0 +1,87 @@
+---
+title: "Quarto"
+subtitle: "An open-source scientific publishing system"
+author: "Giovanni Picogna"
+date: "2024-01-22"
+format:
+  revealjs:
+    theme: moon
+    incremental: true
+    footer: "Code coffee"
+    logo: figures/usmlogo.png
+---
+
+# How does it work {background-image="figures/typewriter.jpg"}
+
+## Meaning
+
+Quarto is the format of a book or pamphlet produced from full sheets printed with eight pages of text, four to a side, then folded twice to produce four leaves. The earliest known European printed book is a Quarto, the Sibyllenbuch, believed to have been printed by Johannes Gutenberg in 1452–53.
+
+## Workflow
+
+![Cartoon showing the general workflow that Quarto uses to create different file outputs. Artwork by @allison_horst.](figures/how-it-works.png)
+
+::: aside
+All this happens under the hood.
+:::
+
+::: {.notes}
+Speaker notes go here.
+:::
+
+## Outputs
+
+1. Documents (HTML, PDF, MS Word, OpenOffice, ePub)
+
+2. Presentations (Revealjs, PowerPoint, Beamer)
+
+3. Markdown (GitHub, CommonMark, Hugo, Docusaurus, Markua)
+
+4. Wikis (MediaWiki, DokuWiki, ZimWiki, Jira Wikim, XWiki)
+
+5. Others (JATS, Jupyter, ConTeXt, RTF, reST, AsciiDoc, Org-Mode, Muse, GNU Texinfo, Groff Man Page, Groff Manuscript, Haddock markup, OPML, Textile, DocBook, InDesign, TEI Simple, FictionBook)
+
+## Same examples
+
+1. A document
+
+2. A presentation
+
+3. A website
+
+4. A dashboard
+
+5. Lab exercises
+
+6. A scientific paper
+
+---
+
+## Examples of embedding
+
+Embed external Figure from Jupyter notebook
+
+{{< embed penguins.ipynb#fig-bill-penguins >}}
+
+--- 
+
+Embed external Table from Jupyter notebook
+
+{{< embed penguins.ipynb#tbl-penguin-species >}}
+
+---
+
+Embed code snippet highlighting lines
+
+```{.python code-line-numbers="|6|9"}
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
